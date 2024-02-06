@@ -11,7 +11,9 @@ const urlencodedparser = bodyParser.urlencoded({ extended: false });
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-    res.render('index', { title: '' })
+    let op = JSON.stringify(req.headers)
+    res.render('index', { title: op })
+    // res.render('index', { title: '' })
 });
 
 app.post('/send-url', urlencodedparser, (req, res) => {
